@@ -2,53 +2,56 @@ import React, { useState } from "react";
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-    // const [titleChange, setTitleChange] = useState('');
-    // const [amountChange, setAmountChange] = useState('');
-    // const [dateChange, setDateChange] = useState('');
-    const [userInput, setUserInput] = useState({
+    const [titleChange, setTitleChange] = useState('');
+    const [amountChange, setAmountChange] = useState('');
+    const [dateChange, setDateChange] = useState('');
+    // Contoh penggunaan multi state :
+    /* const [userInput, setUserInput] = useState({
         titleChange: '',
         amountChange: '',
         dateChange: ''
-    })
+    }) */
 
     const titleChangeHandler = (event) => {
-        // setTitleChange(event.target.value);
-        // setUserInput({
-        //     ...userInput,
-        //     titleChange: event.target.value
-        // });
-        setUserInput((prevState) => {
+        setTitleChange(event.target.value);
+        // Contoh penggunaan multi state :
+        /* setUserInput({
+            ...userInput,
+            titleChange: event.target.value
+        }); */
+        // Contoh penggunaan multi-state yang benar :
+        /*  setUserInput((prevState) => {
             return {
                 ...prevState,
                 titleChange: event.target.value
             };
-        });
+        }); */
     }
     const amountChangeHandler = (event) => {
-        // setAmountChange(event.target.value);
+        setAmountChange(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     amountChange: event.target.value
         // });
-        setUserInput((prevState) => {
-            return {
-                ...prevState,
-                amountChange: event.target.value
-            };
-        });
+        // setUserInput((prevState) => {
+        //     return {
+        //         ...prevState,
+        //         amountChange: event.target.value
+        //     };
+        // });
     }
     const dateChangeHandler = (event) => {
-        // setDateChange(event.target.value);
+        setDateChange(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     dateChange: event.target.value
         // });
-        setUserInput((prevState) => {
-            return {
-                ...prevState,
-                dateChange: event.target.value
-            };
-        });
+        // setUserInput((prevState) => {
+        //     return {
+        //         ...prevState,
+        //         dateChange: event.target.value
+        //     };
+        // });
     }
 
     return <form>
