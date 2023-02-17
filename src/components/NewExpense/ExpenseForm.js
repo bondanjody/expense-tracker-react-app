@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = props => {
     const [titleChange, setTitleChange] = useState('');
     const [amountChange, setAmountChange] = useState('');
     const [dateChange, setDateChange] = useState('');
@@ -60,7 +60,8 @@ const ExpenseForm = () => {
             amount: amountChange,
             date: new Date(dateChange)
         };
-        console.log(expense);
+        
+        props.onSaveNewExpenseHandler(expense);
 
         // me reset (mengosongkan isi form) ketika form di submit
         setTitleChange('');
