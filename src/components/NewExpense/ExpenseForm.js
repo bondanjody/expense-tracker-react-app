@@ -53,8 +53,17 @@ const ExpenseForm = () => {
         //     };
         // });
     }
+    const submitHandler = event => {
+        event.preventDefault();   // mencegah page reload saat di submit
+        const expense = {
+            title: titleChange,
+            amount: amountChange,
+            date: new Date(dateChange)
+        };
+        console.log(expense);
+    }
 
-    return <form>
+    return <form onSubmit={submitHandler}>
         <div className="new-expense__constrols">
             <div className="new-expense__control">
                 <label>Title</label>
