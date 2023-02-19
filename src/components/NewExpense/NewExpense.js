@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 import './NewExpense.css';
 
 const NewExpense = props => {
+    const [isEditing, setIsEditing] = useState(false);
+
+    const editingHandler = () => {
+        setIsEditing(true);
+    }
+
+    // untuk tombol cancel
+    const quitEditingHandler = () => {
+        setIsEditing(false);
+    }
+
     const saveNewExpenseHandler = newExpense => {
 
         const expenseData = {
@@ -11,9 +22,12 @@ const NewExpense = props => {
         };
 
         props.onAddExpense(expenseData);
+
+        setIsEditing(false);
     }
     return <div className="new-expense">
-        <ExpenseForm onSaveNewExpenseHandler={saveNewExpenseHandler} />
+        {!isEditing && <button onClick={editingHandler}>Add New Expenses</button>}
+        {isEditing && <ExpenseForm onSaveNewExpenseHandler={saveNewExpenseHandler} onQuitEditing={quitEditingHandler} />}
     </div>
 }
 
