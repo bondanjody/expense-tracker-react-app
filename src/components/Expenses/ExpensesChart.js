@@ -18,7 +18,7 @@ const ExpensesChart = props => {
     ];
 
     for (const expense of props.expenses) {
-        const expenseMonth = expense.date.getMonth();
+        const expenseMonth = expense.date.getMonth();       // NOTE : Januari dimulai dari 0
         chartDataPoints[expenseMonth].value += expense.amount;
     }
 
